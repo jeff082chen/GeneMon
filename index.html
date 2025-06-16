@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gene Mon 科技萌寵 | 用基因守護毛孩一輩子的健康</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- 基本樣式設定 --- */
+        :root {
+            --primary-color: #005A8D; /* 科技藍 */
+            --secondary-color: #FF7F3F; /* 溫暖橘 */
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+            --white-color: #ffffff;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.4;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- Hero 區塊 --- */
+        .hero {
+            background-color: var(--light-gray);
+            text-align: center;
+            padding: 5rem 2rem;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('4.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 1.5rem auto 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* --- 特色介紹區塊 (圖文交錯) --- */
+        .feature-section {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-image, .feature-text {
+            flex: 1;
+        }
+
+        .feature-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-list li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+
+        /* --- 服務優勢區塊 --- */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+        
+        .benefit-item {
+            padding: 1.5rem;
+            background: var(--white-color);
+            border-radius: 8px;
+            border-left: 5px solid var(--secondary-color);
+        }
+        
+        .benefit-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- 比較表格 --- */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        .comparison-table th {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            font-weight: 500;
+        }
+
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+
+        .comparison-table .check {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .comparison-table .cross {
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* --- 用戶故事區塊 --- */
+        .testimonial {
+            background-color: var(--light-gray);
+        }
+        
+        .testimonial-content {
+            background: var(--white-color);
+            padding: 2rem;
+            border-left: 8px solid var(--primary-color);
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-content blockquote {
+            margin: 0;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+        
+        .testimonial-content .author {
+            text-align: right;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        /* --- CTA (行動呼籲) 區塊 --- */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            text-align: center;
+        }
+
+        .cta-section h2, .cta-section h3 {
+            color: var(--white-color);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #ff9a66;
+            transform: translateY(-3px);
+        }
+
+        /* --- 響應式設計 --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .container { padding: 2rem 1rem; }
+            .feature-section, .feature-section:nth-child(even) {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Gene Mon 科技萌寵</h1>
+        <p>用基因守護毛孩一輩子的健康</p>
+        <p>在這個人與寵物關係越來越緊密的時代，毛孩不只是寵物，更是家人。我們相信，每一位飼主都希望毛孩活得健康、活得久、活得有品質。而這一切，從「理解牠的基因」開始。</p>
+        <p>Gene Mon 科技萌寵，致力於打造台灣首個「基因 + AI + 營養」三位一體的寵物健康管理平台。我們將高通量基因定序技術應用於寵物健康風險分析，結合人工智慧分析模型，為每隻毛孩量身打造個性化的營養與照護計畫，從源頭預防疾病、延長壽命、改善生活品質。</p>
+    </section>
+
+    <!-- 健康藍圖 Section -->
+    <div class="container">
+        <section class="feature-section">
+            <div class="feature-image">
+                <img src="1.jpeg" alt="毛孩健康藍圖示意圖">
+            </div>
+            <div class="feature-text">
+                <h3>🧬 一份基因報告，看見一輩子的健康藍圖</h3>
+                <p>你知道嗎？根據研究，許多寵物疾病其實是由「遺傳因子」所造成或加重的。例如血友病、白血球缺乏症、凝血障礙、脂肪代謝異常、慢性過敏體質等，這些在表面上看起來健康的狗狗體內，可能早就藏有風險基因。</p>
+                <p>過去，這些疾病往往要等到「發作」才會被發現。但現在，透過 Gene Mon 的基因檢測，只需要簡單採集口腔細胞樣本，我們就能：</p>
+                <ul class="feature-list">
+                    <li>🔍 分析是否帶有致病變異或高風險基因</li>
+                    <li>🔎 評估牠在代謝、免疫、凝血、吸收等功能上的體質特性</li>
+                    <li>🧠 預測未來可能出現的健康風險，從飲食與生活習慣做起預防</li>
+                </ul>
+                <p>這份檢測不只是一張報告，它是一張「毛孩的健康地圖」，協助你在日常就能做出更聰明的照護選擇。</p>
+            </div>
+        </section>
+        
+        <!-- AI 智能營養系統 Section -->
+        <section class="feature-section">
+            <div class="feature-image">
+                <img src="2.jpeg" alt="AI 智能營養系統示意圖">
+            </div>
+            <div class="feature-text">
+                <h3>🤖 我們的核心：科學驅動的 AI 智能營養系統</h3>
+                <p>基因只是第一步。真正的照護，是在於「怎麼做」能對牠最好。</p>
+                <p>Gene Mon 獨家開發的 AI 營養演算法，整合數百筆犬類基因變異與臨床文獻，透過機器學習與數據分析，為每一隻毛孩提供動態的營養與生活建議：</p>
+                <ul class="feature-list">
+                    <li>✔ 根據基因預測，制定專屬營養補充方向</li>
+                    <li>✔ 持續追蹤健康數據（食慾、活動力、體重等）</li>
+                    <li>✔ 系統主動提供每日飲食與照護建議</li>
+                    <li>✔ 根據品種、年齡、活動量與基因組合，提供客製配方建議</li>
+                </ul>
+                <p>這樣的智慧系統，就像是毛孩身邊的營養顧問，時時刻刻守護牠的健康曲線。</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- 服務能帶來什麼 Section -->
+    <div style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2>我們的服務能為你與毛孩帶來什麼？</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="icon">🩺</div>
+                    <h3>提前預警、有效預防</h3>
+                    <p>已識別出數十種犬類基因變異，包括血小板異常、凝血因子缺乏等，可能引起突發性出血、免疫力低下等問題。透過我們的分析，能讓飼主及早知道、及早調整。</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">🍽️</div>
+                    <h3>吃得對，比吃得好更重要</h3>
+                    <p>每隻毛孩的代謝能力不同。我們的服務告訴你牠真正需要補什麼、哪些成分是負擔，讓照護更科學、有效，也最節省資源與心力。</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">📱</div>
+                    <h3>一站式 APP 平台，健康隨手掌握</h3>
+                    <p>在手機上隨時查看毛孩的個人基因圖譜、營養建議、飲食紀錄與健康警訊。你不再靠感覺猜測，而是擁有數據做依據，如同配備了全職營養管理師。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 比較表格 Section -->
+    <div class="container">
+        <h2>為什麼選擇 Gene Mon？</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>功能</th>
+                    <th>Gene Mon</th>
+                    <th>一般基因檢測</th>
+                    <th>一般寵物食品</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>基因檢測項目</td>
+                    <td>疾病風險 + 營養代謝</td>
+                    <td>疾病風險</td>
+                    <td class="cross">❌ 無</td>
+                </tr>
+                <tr>
+                    <td>AI 營養建議</td>
+                    <td class="check">✅ 每日更新</td>
+                    <td class="cross">❌ 無</td>
+                    <td class="cross">❌ 無</td>
+                </tr>
+                <tr>
+                    <td>個性化配方</td>
+                    <td class="check">✅ 根據基因動態調整</td>
+                    <td>統一建議</td>
+                    <td>單一配方</td>
+                </tr>
+                <tr>
+                    <td>健康數據追蹤</td>
+                    <td class="check">✅ APP 自動整合</td>
+                    <td class="cross">❌ 無</td>
+                    <td class="cross">❌ 無</td>
+                </tr>
+                <tr>
+                    <td>預防性照護能力</td>
+                    <td class="check">✅ 提前介入</td>
+                    <td>發病後處理</td>
+                    <td>被動飲食管理</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align:center; margin-top:1.5rem;">Gene Mon 是一個整合性平台，不是單一產品，而是整合了「資料分析 + 飲食建議 + 持續追蹤 + 用戶教育」的一站式照護方案。</p>
+    </div>
+    
+    <!-- 用戶故事 Section -->
+    <section class="testimonial">
+        <div class="container">
+            <h2>用戶故事：一位博美犬飼主的心聲</h2>
+            <div class="testimonial-content">
+                <blockquote>「我家毛球是一隻很挑嘴的博美，之前一直腸胃不好，醫生說可能是體質問題。後來用了 Gene Mon，才知道牠帶有一個腸道相關酵素的突變，會影響脂肪代謝。根據建議換了配方後，不只排便正常，精神也好多了。」</blockquote>
+                <p class="author">- 台北市，毛球的媽媽</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 未來展望 Section -->
+    <div class="container">
+        <section class="feature-section">
+            <div class="feature-image">
+                <img src="3.jpeg" alt="Gene Mon 未來展望示意圖">
+            </div>
+            <div class="feature-text">
+                <h3>🌏 展望未來，我們不只是檢測，更是一場健康革命</h3>
+                <p>Gene Mon 將持續擴展資料庫與品種研究，與多家獸醫學院、寵物食品業者合作，推動更廣泛的精準營養應用。我們也計畫進軍國際市場，讓這項技術服務更多毛孩與家庭。</p>
+                <p>我們的願景是：讓所有毛孩，都能擁有一份專屬於自己的基因健康計畫，不論牠是柴犬、馬爾濟斯、柯基還是米克斯，都能被看見、被理解、被照顧得更好。</p>
+            </div>
+        </section>
+    </div>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>現在就加入 Gene Mon 健康革命</h2>
+            <p>不論你的毛孩現在多健康、多年輕，透過一份基因檢測，就能幫你預測未來的風險，制定屬於牠的健康藍圖。你也將不再為照顧而焦慮，因為你有我們一起同行。</p>
+            <p>讓我們一起，為毛孩的每一天，創造更有保障的未來。</p>
+            <a href="#" class="cta-button">👉 立即體驗 Gene Mon 健康計畫</a>
+            <p style="margin-top:1rem; font-size: 0.9rem;">從一支唾液棒開始，為毛孩開啟一生的照護旅程。</p>
+        </div>
+    </section>
+
+</body>
+</html>
